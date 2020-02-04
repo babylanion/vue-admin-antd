@@ -5,11 +5,11 @@
     <div class="logo" />
     <a-menu theme="dark"
             mode="inline"
-            :defaultSelectedKeys="['1']">
+            :defaultSelectedKeys="[$route.path]">
       <a-menu-item v-for="item in menuData" :key="item.path">
         <a-icon :type="item.icon" />
         <router-link :to="item.path">
-          <span>頁面</span>
+          <span>{{item.name}}</span>
         </router-link>
       </a-menu-item>
     </a-menu>
@@ -33,6 +33,9 @@ export default {
         }
       ]
     }
+  },
+  mounted () {
+    console.log(this.$route)
   }
 }
 </script>
