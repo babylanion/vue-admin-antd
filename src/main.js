@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import 'ant-design-vue/dist/antd.css'
+import './assets/style/common.css'
 import Antd from 'ant-design-vue'
 
 Vue.use(Antd)

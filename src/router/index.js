@@ -1,21 +1,30 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
-import Collect from '@/components/Collect'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Collect',
-      component: Collect
+      name: '首页',
+      redirect: '/home',
+      component: reslove => require(['@/components/Layout.vue'], reslove),
+      children: [
+        {
+          path: '/home',
+          component: reslove => require(['@/views/Home/Home.vue'], reslove)
+        },
+        {
+          path: '/page',
+          component: reslove => require(['@/views/Page/Page.vue'], reslove)
+        }
+      ]
+
     },
     {
-      path:'/Collect',
-      name:'Collect',
-      component: Collect
-    },
-    
+      path: '/login',
+      name: '登录页',
+      component: reslove => require(['@/views/Login/Login.vue'], reslove)
+    }
   ]
 })
